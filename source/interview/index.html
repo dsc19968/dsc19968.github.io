@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前端面试复习手册 · 2025</title>
+<meta name="description" content="2025 最新前端八股文面试题手册，228 道高频题，按主题分类，支持搜索、掌握度标记与随机抽题。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="app">
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <button class="icon-btn menu-toggle" id="menuToggle" aria-label="菜单">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="brand" href="#" id="brandLink">
+      <span class="brand-mark">FE</span>
+      <span class="brand-text">前端面试复习手册<span class="brand-sub">2025 最新版 · 228 题</span></span>
+    </a>
+    <div class="top-actions">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input type="text" id="searchInput" placeholder="搜索题目 / 关键词…  ( / )" autocomplete="off">
+        <kbd>/</kbd>
+        <button class="clear-search" id="clearSearch" aria-label="清除">×</button>
+      </div>
+      <button class="icon-btn" id="randomBtn" title="随机抽题" aria-label="随机抽题">
+        <svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">
+        <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <div class="progress-box">
+          <div class="progress-label"><span>复习进度</span><strong id="progressPct">0%</strong></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-stats"><span id="statMastered">0 掌握</span><span id="statFuzzy">0 模糊</span><span id="statTodo">228 未学</span></div>
+        </div>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="all">全部</button>
+          <button class="filter-tab" data-filter="todo">未学</button>
+          <button class="filter-tab" data-filter="fuzzy">模糊</button>
+          <button class="filter-tab" data-filter="mastered">掌握</button>
+        </div>
+      </div>
+      <nav class="nav-list" id="navList"></nav>
+      <div class="sidebar-foot">
+        <button class="foot-btn" id="expandAllBtn">展开全部</button>
+        <button class="foot-btn" id="collapseAllBtn">收起全部</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 主内容 -->
+    <main class="content" id="content">
+      <div class="content-inner" id="contentInner"></div>
+    </main>
+  </div>
+</div>
+
+<!-- 随机抽题弹层 -->
+<div class="modal" id="randomModal">
+  <div class="modal-box">
+    <div class="modal-head"><span>🎲 随机抽题</span><button class="icon-btn" id="closeRandom" aria-label="关闭">×</button></div>
+    <div class="random-q" id="randomQ">点击按钮抽一道题</div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="randomAgain">换一题</button>
+      <button class="btn btn-primary" id="randomShow">查看答案</button>
+    </div>
+    <div class="random-answer" id="randomAnswer"></div>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
